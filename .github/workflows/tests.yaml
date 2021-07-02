@@ -11,10 +11,22 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.6
-
-      - name: Install tools
+      
+      - name: Install python
         run: python -m pip install --upgrade pip pytest
+       
+      - name: Install pandas
+        run: python -m pip install pandas
+
+      - name: Install requests module
+        run: python -m pip install requests
+        
+      - name: Install sqlalchemy
+        run: python -m pip install sqlalchemy        
+
+      - name: Install datetime module
+        run: python -m pip install datetime
 
       - name: Test with unittest
         run: |
-          python3 -m unittest test.py
+          python3 -m unittest test_quotes.py
