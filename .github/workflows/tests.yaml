@@ -15,7 +15,11 @@ jobs:
       - name: Install tools
         run: |
           python -m pip install --upgrade pip pytest
-          pip install coverage
+          pip3 install coverage
+          pip3 install flask
+          pip3 install flask-wtf
+          pip3 install flask-sqlalchemy
+          pip3 install email-validator
       
       - name: Install python
         run: python -m pip install --upgrade pip pytest
@@ -47,3 +51,6 @@ jobs:
         with:
            name: code-coverage-report
            path: htmlcov
+           
+      - name: Test webpages
+        run: python3 tests/test_basic.py
